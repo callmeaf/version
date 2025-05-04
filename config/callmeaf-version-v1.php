@@ -151,7 +151,7 @@ return [
             'as' => 'versions.',
             'middleware' => [
                 'auth:sanctum',
-//                'role:' . \Callmeaf\Role\App\Enums\RoleName::SUPER_ADMIN->value,
+                'role:' . \Callmeaf\Role\App\Enums\RoleName::SUPER_ADMIN->value,
             ],
         ],
     ],
