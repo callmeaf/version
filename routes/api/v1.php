@@ -13,6 +13,6 @@ use Illuminate\Support\Facades\Route;
 Route::prefix($prefix)->as($as)->middleware($middleware)->controller($controllers['version'])->group(function () {
     Route::get('/latest','latest');
      Route::prefix('{version}')->group(function () {
-         Route::patch('/confirm_view','confirmView');
+         Route::post('/confirm_view','confirmView');
      });
 });

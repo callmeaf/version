@@ -4,13 +4,14 @@ namespace Callmeaf\Version\App\Models;
 
 use Callmeaf\Base\App\Models\BaseModel;
 use Callmeaf\Base\App\Traits\Model\HasDate;
+use Callmeaf\Base\App\Traits\Model\HasSearch;
 use Callmeaf\VersionView\App\Repo\Contracts\VersionViewRepoInterface;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Support\Facades\Auth;
 
 class Version extends BaseModel
 {
-    use HasDate;
+    use HasDate,HasSearch;
     protected $primaryKey = 'id';
     protected $keyType = 'string';
     public $incrementing = false;
@@ -55,5 +56,18 @@ class Version extends BaseModel
         $this->usersViews()->create([
             'user_id' => $user->id,
         ]);
+    }
+
+    public function searchParams(): array
+    {
+        return [
+            [
+                'id' => 'id',
+            ],
+            [
+                'created_from' => 'created_at',
+                'created_to' => 'created_at'
+            ]
+        ];
     }
 }
