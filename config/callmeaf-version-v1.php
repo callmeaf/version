@@ -72,7 +72,7 @@ return [
                 // listeners
             ],
             \Callmeaf\Version\App\Events\Admin\V1\VersionCreated::class => [
-                // listeners
+                \Callmeaf\Version\App\Listeners\Admin\V1\SendVersionInfoToSocials::class,
             ],
             \Callmeaf\Version\App\Events\Admin\V1\VersionShowed::class => [
                 // listeners
