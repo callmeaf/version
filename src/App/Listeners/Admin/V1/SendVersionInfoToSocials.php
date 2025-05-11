@@ -8,11 +8,9 @@ use Callmeaf\Version\App\Events\Admin\V1\VersionCreated;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Contracts\Queue\ShouldQueue;
-use Illuminate\Foundation\Queue\Queueable;
 
 class SendVersionInfoToSocials implements ShouldQueue
 {
-    use Queueable;
     /**
      * Create the event listener.
      */
@@ -55,7 +53,7 @@ class SendVersionInfoToSocials implements ShouldQueue
 
     private function versionInfoMessage(string $versionId,SocialBot $socialBot): string
     {
-        $footer = $socialBot->footer ?? '';
-        return "✅ Application has been successfully updated to version: $versionId. $footer";
+        $footerText = $socialBot->footerText ?? '';
+        return "✅ Application has been successfully updated to version: $versionId. $footerText";
     }
 }
