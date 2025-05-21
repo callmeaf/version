@@ -51,7 +51,12 @@ class SendVersionInfoToSocials implements ShouldQueue
         });
     }
 
-    private function versionInfoMessage(string $versionId,SocialBot $socialBot): string
+    /**
+     * @param string $versionId
+     * @param SocialBot $socialBot
+     * @return string
+     */
+    private function versionInfoMessage(string $versionId,$socialBot): string
     {
         $footerText = $socialBot->footerText ?? '';
         return "✅ Application has been successfully updated to version: $versionId. $footerText";
